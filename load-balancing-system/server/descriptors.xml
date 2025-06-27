@@ -1,0 +1,36 @@
+<icegrid>
+    <application name="LoadBalancerApp">
+
+        <replica-group id="EchoReplicaGroup">
+            <load-balancing type="round-robin"/>
+            <object identity="echo" type="::LoadBalancer::Echo"/>
+            <object identity="calculator" type="::LoadBalancer::Calculator"/>
+        </replica-group>
+
+        <server-template id="EchoCalcTemplate">
+            <parameter name="instance"/>
+            <server id="Server${instance}" exe="start-server.bat" activation="on-demand">
+                <adapter name="Adapter" replica-group="EchoReplicaGroup"/>
+                <property name="Ice.ProgramName" value="server-java"/>
+            </server>
+
+        </server-template>
+
+        <node name="node1">
+            <server-instance template="EchoCalcTemplate" instance="1"/>
+        </node>
+        <node name="node2">
+            <server-instance template="EchoCalcTemplate" instance="2"/>
+        </node>
+        <node name="node3">
+            <server-instance template="EchoCalcTemplate" instance="3"/>
+        </node>
+        <node name="node4">
+            <server-instance template="EchoCalcTemplate" instance="4"/>
+        </node>
+        <node name="node5">
+            <server-instance template="EchoCalcTemplate" instance="5"/>
+        </node>
+
+    </application>
+</icegrid>

@@ -1,0 +1,13 @@
+# Configuration file (06/24/25 14:39:33.613)
+
+# Server configuration
+Ice.Admin.ServerId=Server1
+Ice.Admin.Endpoints=tcp -h localhost
+Ice.ProgramName=Server1
+# Object adapter Adapter
+Adapter.Endpoints=default
+Adapter.AdapterId=Server1.Adapter
+Adapter.ReplicaGroupId=EchoReplicaGroup
+# Server descriptor properties
+Ice.ProgramName=server-java
+Ice.Default.Locator=IceGrid/Locator:tcp -p 4061

@@ -1,0 +1,10 @@
+model_id: deepset/roberta-base-squad2
+max_length: 384
+doc_stride: 128
+train_batch_size: 8
+eval_batch_size: 8
+num_epochs: 2
+learning_rate: 3e-5
+output_dir: ./ray_results
+serve_host: 0.0.0.0
+serve_port: 8000
